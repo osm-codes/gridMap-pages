@@ -1,0 +1,50 @@
+preload = ["./src/utils/serverRenderer.tsx", "./preload.ts"]
+
+[jsx]
+jsx = "react"
+jsxFactory = "h"
+jsxFragment = "Fragment"
+jsxImportSource = "react"
+smol = true
+logLevel = "debug"
+
+[define]
+"process.env.NODE_ENV" = "'production'"
+
+[loader]
+".bagel" = "tsx"
+
+[telemetry]
+enabled = false
+
+[test]
+root = "./src/tests"
+preload = ["./src/utils/testSetup.ts"]
+smol = true
+coverage = true
+coverageThreshold = { line = 0.7, function = 0.8, statement = 0.9 }
+coverageSkipTestFiles = true
+
+[install]
+optional = true
+dev = true
+peer = true
+production = false
+exact = false
+auto = "auto"
+frozenLockfile = false
+dryRun = false
+globalDir = "~/.bun/install/global"
+globalBinDir = "~/.bun/bin"
+registry = "https://registry.npmjs.org"
+
+# Cache settings
+[install.cache]
+dir = "~/.bun/install/cache"
+disable = false
+disableManifest = false
+
+# Lockfile settings
+[install.lockfile]
+save = true
+print = "yarn"
