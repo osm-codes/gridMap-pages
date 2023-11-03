@@ -4,7 +4,7 @@
   "scripts": {
     "build:client": "bun build ./src/client/index.tsx --outdir ./out/client --minify --target browser",
     "build:server": "bun build ./src/server/index.tsx --outdir ./out/server --minify --target bun",
-    "start": "bun start ./out/server/index.js",
+    "start": "bun run ./out/server/index.js",
     "test": "bun test"
   },
   "dependencies": {
