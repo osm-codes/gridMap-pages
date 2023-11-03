@@ -38,7 +38,7 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 // Hook to use the map context
 export const useMapContext = () => {
   const context = useContext(MapContext);
-  if (!context) {
+  if (context === null) {
     throw new Error('useMapContext must be used within a MapProvider');
   }
   return context;
