@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from '../components/App';
+import { createMemoryHistory } from 'history';
 import { StaticRouter } from 'react-router-dom/server';
 
 export const render = (url: string): string => {
+  // Create a memory history for the current URL
+  const history = createMemoryHistory({ initialEntries: [url] });
+
   const content = ReactDOMServer.renderToString(
     <StaticRouter location={url}>
-      <App />
+      <App router="static" location={url} />
     </StaticRouter>
   );
 
