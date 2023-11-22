@@ -2,8 +2,8 @@
   "name": "grid-maps-app",
   "version": "1.0.0",
   "scripts": {
-    "build:client": "bun build ./src/client/index.tsx --outdir ./out/client --minify --target browser",
-    "build:server": "bun build ./src/server/index.tsx --outdir ./out/server --minify --target bun",
+    "build:client": "bun build ./src/client/index.tsx --outdir ./public/ --target browser",
+    "build:server": "bun build ./src/server/index.tsx --outdir ./out/server --target bun",
     "start": "bun run ./out/server/index.js",
     "test": "bun test"
   },
@@ -21,7 +21,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",
-    "react-router-dom": "^6.18.0",
+    "react-router-dom": "^6.19.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2"
   },

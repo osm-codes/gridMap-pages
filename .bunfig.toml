@@ -1,7 +1,5 @@
-preload = ["./src/utils/serverRenderer.tsx", "./preload.ts"]
-
 [jsx]
-jsx = "react"
+jsx = "react-jsx"
 jsxFactory = "h"
 jsxFragment = "Fragment"
 jsxImportSource = "react"

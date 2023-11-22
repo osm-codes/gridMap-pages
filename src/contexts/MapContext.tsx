@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useState, useContext } from 'react';
 import mapReducer, { setCoordinates, setZoom, initialState as mapInitialState, MapState } from '../store/mapSlice';
 
-interface MapContextProps {
+interface MapContextState {
   state: MapState;
   dispatch: React.Dispatch<any>;
   coordinates: number[];
@@ -11,7 +11,7 @@ interface MapContextProps {
 }
 
 // Create the context with a default value
-const MapContext = createContext<MapContextProps>({
+const MapContext = createContext<MapContextState>({
   state: mapInitialState,
   dispatch: () => null,
   coordinates: mapInitialState.coordinates,
@@ -38,7 +38,7 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 // Hook to use the map context
 export const useMapContext = () => {
   const context = useContext(MapContext);
-  if (!context) {
+  if (context === null) {
     throw new Error('useMapContext must be used within a MapProvider');
   }
   return context;
