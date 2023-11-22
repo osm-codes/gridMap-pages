@@ -1,19 +1,25 @@
-import { readFile } from 'bun';
+import { readFile } from 'fs/promises'; 
+import { join } from 'path'; 
 
 export async function serveStaticFile(path: string): Promise<Response> {
   try {
-    const fileContents = await readFile(new URL(path, import.meta.url));
+    const resolvedPath = join(process.cwd(), 'public', path);
+    console.log(`Attempting to serve: ${resolvedPath}`);
+
+    const fileContents = await readFile(resolvedPath); 
     const contentType = determineContentType(path);
     return new Response(fileContents, {
       headers: { 'Content-Type': contentType },
     });
   } catch (error) {
+    console.error(`Error serving file: ${path}`, error);
     return new Response(null, {
       status: 404,
       statusText: 'Not Found',
     });
   }
 }
+
 
 function determineContentType(path: string): string {
   const extension = path.split('.').pop();

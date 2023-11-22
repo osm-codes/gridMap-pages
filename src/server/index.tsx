@@ -1,15 +1,10 @@
 import { serve } from 'bun';
-import { render } from '../utils/serverRenderer';
 import { serveStaticFile } from './static';
 
 serve({
   fetch(req: Request) {
     const url = new URL(req.url);
-
-    // Serve static assets from the public directory
-    if (url.pathname.startsWith('/public/')) {
-      return serveStaticFile(`./public${url.pathname}`);
-    }
+    console.log(`Received request for: ${url.pathname}`); // Log the requested path
 
     // API Endpoint example
     if (url.pathname.startsWith('/api/')) {
@@ -21,14 +16,16 @@ serve({
       });
     }
 
-    // SSR for all other routes
-    return new Response(render(url.pathname), {
-      headers: {
-        'Content-Type': 'text/html'
-      }
-    });
+    // Serve static assets from the public directory
+    if (url.pathname.startsWith('/')) {
+      return serveStaticFile(`${url.pathname}`);
+    }
+
+    // Serve the index.html for all other routes (Client-side routing)
+    return serveStaticFile('index.html');
   },
   port: 3000
 });
+
 
 console.log(`Server is listening on port 3000`);
