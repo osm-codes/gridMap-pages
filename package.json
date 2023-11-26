@@ -5,18 +5,14 @@
     "build:client": "bun build ./src/client/index.tsx --outdir ./public/ --target browser",
     "build:server": "bun build ./src/server/index.tsx --outdir ./out/server --target bun",
     "start": "bun run ./out/server/index.js",
-    "test": "bun test"
+    "test": "jest --config ./jest.config.ts",
+    "test:watch": "jest --config ./config/jest.config.ts --watchAll"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.0.0",
-    "@types/jest": "^29.5.7",
-    "@types/jsdom": "^21.1.4",
     "@types/redux": "^3.6.0",
-    "@types/testing-library__react": "^10.2.0",
     "history": "^5.3.0",
-    "jsdom": "^22.1.0",
+    "jest-environment-jsdom": "^29.7.0",
     "ol": "^6.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,12 +22,31 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@jest/globals": "^29.7.0",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.10",
+    "@types/jsdom": "^21.1.6",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
+    "@types/testing-library__react": "^10.2.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
+    "babel-jest": "^29.7.0",
     "eslint": "^7.14.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0",
     "prettier": "^2.2.1",
+    "react-test-renderer": "^18.2.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
     "typescript": "^4.1.2"
   }
 }

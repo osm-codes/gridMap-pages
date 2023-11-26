@@ -29,7 +29,7 @@ const OpenLayersMap: React.FC = () => {
     }
   }, [coordinates, zoom]);
 
-  return <div ref={mapElement} className="map-container"></div>;
+  return <div ref={mapElement} data-testid="ol-map-container" className="map-container"></div>;
 };
 
 export default OpenLayersMap;

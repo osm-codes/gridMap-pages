@@ -7,13 +7,10 @@ smol = true
 logLevel = "debug"
 
 [define]
-"process.env.NODE_ENV" = "'production'"
+process.env.NODE_ENV = "development"
 
 [loader]
 ".bagel" = "tsx"
-
-[telemetry]
-enabled = false
 
 [test]
 root = "./src/tests"

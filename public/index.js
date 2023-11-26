@@ -38242,6 +38242,7 @@ var OpenLayersMap = () => {
   }, [coordinates2, zoom]);
   return jsx_dev_runtime2.jsxDEV("div", {
     ref: mapElement,
+    "data-testid": "ol-map-container",
     className: "map-container"
   }, undefined, false, undefined, this);
 };
@@ -38254,6 +38255,7 @@ var MainMap = () => {
   import_react3.useEffect(() => {
   }, [dispatch]);
   return jsx_dev_runtime3.jsxDEV("div", {
+    "data-testid": "map-container",
     children: jsx_dev_runtime3.jsxDEV(OpenLayersMap_default, {}, undefined, false, undefined, this)
   }, undefined, false, undefined, this);
 };
