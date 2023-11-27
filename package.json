@@ -6,7 +6,7 @@
     "build:server": "bun build ./src/server/index.tsx --outdir ./out/server --target bun",
     "start": "bun run ./out/server/index.js",
     "test": "jest --config ./jest.config.ts",
-    "test:watch": "jest --config ./config/jest.config.ts --watchAll"
+    "test:watch": "jest --config ./jest.config.ts --watchAll"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
