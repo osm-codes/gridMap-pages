@@ -11,7 +11,7 @@ const MainMap: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div data-testid="map-container">
       <OpenLayersMap />
     </div>
   );

@@ -1,0 +1,29 @@
+name: CI on Pull Request
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest 
+
+    # Install dependencies
+    - name: Install dependencies
+      run: bun i
+
+    # Build phase
+    - name: Build
+      run: bun run build:server && bun run build:client
+
+    # Test suites
+    - name: Test
+      run: bun run test

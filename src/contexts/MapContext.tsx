@@ -13,7 +13,7 @@ interface MapContextState {
 // Create the context with a default value
 const MapContext = createContext<MapContextState>({
   state: mapInitialState,
-  dispatch: () => null,
+  dispatch: () => {},
   coordinates: mapInitialState.coordinates,
   setCoordinates: () => {},
   zoom: mapInitialState.zoom,
